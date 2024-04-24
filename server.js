@@ -9,7 +9,7 @@ const express = require('express');
 
 // Constants#
 // Die Anweisungen werden von oben nach unten abgearbeitet.
-//Der Wert 3000 wird von rechts nach links zugewisen an die Konstante namens PORT.
+// Der Wert 3000 wird von rechts nach links zugewisen an die Konstante namens PORT.
 // Das einfache Gleichheitszeichen lässt sich also übersetzen mit "wird zugewiesen an"
 const PORT = 3000;
 // Der Wert '0.0.0.0' wird zugewisen an eine Konstante namens HOST.
