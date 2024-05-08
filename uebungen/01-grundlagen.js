@@ -59,7 +59,42 @@ console.log('Kapital nache einem Jahr: ' + kapitalNachEinemJahr + " EUR")
 let kapitalnachZweiJahren = kapitalNachEinemJahr * (1+zinssatz);
 console.log('kapital nach zwei Jahren: ' +kapitalnachZweiJahren + "EUR.")
 
-let endkapital = Math.pow ((Startkapital * zinssatz),Laufzeit);
+let endkapital = Startkapital * Math.pow (1 + zinssatz, Laufzeit);
 
 
-console.log("Endkapital nach " + Laufzeit+ '  ......
+console.log("Endkapital nach " + Laufzeit+ ' Jahren ' + endkapital + ' EUR')
+
+console.log('Aufgabe 7');
+console.log('Die Werte aus der vorherigen Aufgabe werden als Reihe dargestellt.');
+
+// Im Zeitpunkt Null ist das Endkapital gleich dem Startkapital
+endkapital = Startkapital;
+console.log(endkapital)
+
+// Nach dem ersten Jahr erhöht sich das Entkapital um den Faktor 1,1.
+endkapital = endkapital * (1 + zinssatz);
+console.log(endkapital)
+
+// Nach dem zweiten Jahr wird dem Endkapital der Wert des Endkapitals mal 1,1 zugewiesen.
+endkapital= (endkapital * (1+zinssatz));
+console.log(endkapital)
+
+// Nach dem dritten Jahr wird dem Endkapital der Wert des Endkapitals mal 1,1 zugewiesen.
+endkapital= (endkapital * (1+zinssatz));
+console.log(endkapital)
+
+// Nach dem vierten Jahr wird dem Endkapital der Wert des Endkapitals mal 1,1 zugewiesen.
+endkapital= (endkapital * (1+zinssatz));
+console.log(endkapital)
+
+console.log('Aufgabe 8');
+console.log('In Aufgabe 7 wurde die Anweisung Endkapital = ... mehrfach wiederholt. Um sich Tipparbeit zu sparen und die Widerholung der Anweisung in der gewünschetn Häufigkeit durchzuführen, nutzt der Programmierer eine Schleife.');
+
+Startkapital = 100;
+endkapital = Startkapital;
+zinssatz = 0.1;
+Laufzeit = 3;
+
+for (let i = 0; i <Laufzeit; i++) {
+    endkapital= (endkapital * (1+zinssatz));
+    console.log("Endkapital nach Jahr" + (i+1) + ": " + endkapital + "EUR")}
