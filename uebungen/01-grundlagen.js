@@ -117,9 +117,8 @@ console.log('Der Mehrwertsteuersatz für den Artikel ' + artikel + ' beträgt: '
 
 console.log('Aufgabe 10');
 console.log('Wenn das Geschlecht w ist, soll die Anrede Frau sein, sonst Herr.');
-console.log(Wenn ...)
 
-let geschlecht = 'w'
-let anrede = (geschlecht === 'w')? Frau : Herr ;
+let geschlecht = 'w';
+let anrede = (geschlecht === "w")? Frau : Herr ;
 
-console.log("Die Anrede für das Geschlecht" + geschlecht + "lautet:" + anrede);
+console.log('Die Anrede für das Geschlecht' + geschlecht + 'lautet:' + anrede );
