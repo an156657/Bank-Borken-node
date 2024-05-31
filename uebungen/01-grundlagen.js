@@ -4,7 +4,7 @@ console.log("==========");
 console.log('Aufgabe 1');
 console.log('Erstelle zwei Variablen namens a und b. Initialisiere mit den Werten 1 und 2.');
 
-// Der Wert 1 wird zugewisen (=) an eine Variable namens a.
+// Der Wert 1 wird zugewiesen (=) an eine Variable namens a.
 let a = 1;
 let b = 2;
 
