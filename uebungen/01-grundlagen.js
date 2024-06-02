@@ -199,3 +199,9 @@ if (alter < 18)
     {eintritt = 6;}
 
 console.log('Bei einem Alter von ' + alter + ' Jahren zahlt eine Person mit Geschlecht ' + geschlecht + ' ' + eintritt + ' Euro.');
+
+
+
+
+
+
