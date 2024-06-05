@@ -203,27 +203,31 @@ if (alter < 18)
 
 console.log('Bei einem Alter von ' + alter + ' Jahren zahlt eine Person mit Geschlecht ' + geschlecht + ' ' + eintritt + ' Euro.');
 
+
 console.log('Aufgabe 14');
-console.log('Wenn das Geschlecht w ist, soll die Anrede Frau lauten, ansonsten Herr');
-
-geschlecht = 'w';
-let andrede;
-
-if (geschlecht = "w") {anrede = "Frau"}
-else {anrede = "Herr"};
-
-console.log('Bei dem Geschlecht: ' + geschlecht + ' lautet die Anrede: ' + anrede);
-
-console.log('Aufgabe 15');
 console.log('Wenn das Einkommen über 100€ beträgt, soll der Erfolg positiv sein, sonst negativ.');
 
-let einkommen = 500;
+let einkommen = 50;
 let erfolg;
 
 if(einkommen>=100){erfolg = "positiv"}
 else{erfolg = "negativ"};
 
-console.log('Bei einem Einkommen von: ' + einkommen + ' EUR, ist der Erfolg ' +erfolg)
+console.log('Bei einem Einkommen von: ' + einkommen + ' EUR, ist der Erfolg ' +erfolg);
+
+console.log('Aufgabe 15');
+console.log('Wenn das Geschlecht "w" ist, soll die Anrede "Frau" lauten, ansonsten "Herr".');
+
+geschlecht = 'm';
+let anrede;
+
+
+if (geschlecht === "w") {anrede = "Frau"}
+else {anrede = "Herr"};
+
+console.log('Bei dem Geschlecht: ' + geschlecht + ' lautet die Anrede: ' + anrede);
+
+
 
 
 
