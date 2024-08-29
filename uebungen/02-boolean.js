@@ -1,22 +1,22 @@
 console.log("Booleans");
-console.log("========")
+console.log("========");
 
-console.log("Boolsche Werte sind Wahrheitswerte, die wahr (true) oder falsch (false) annehmen können.")
+console.log("Boolsche Werte sind Wahrheitswerte, die wahr (true) oder falsch (false) annehmen können.");
 
 // Wahrheitswerte kennen wir bereits aus der Wenn-Funktion in Excel.
 
-console.log("Aufgabe 1")
+console.log("Aufgabe 1");
 
 if(true){
     console.log("Der Ausdruck ist wahr.")
 }else{
     console.log("Der Ausdruck ist false.")}
 
-console.log("Aufgabe 2")
+console.log("Aufgabe 2");
 
 // In Erweiterung von Aufgabe 1 soll der Ausdruck dynamisch entweder true oder false sein.
 
-let a = 5
+let a = 7
 if(a>6){console.log("Das ist wahr")}
 else{console.log("Das ist falsch")}
 
