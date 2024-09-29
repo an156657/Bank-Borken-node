@@ -111,4 +111,4 @@ if(spielausgang == 'unentschieden'){
     console.log('Es gibt 1 Punkt.')}
 
 if(spielausgang == 'niederlage'){
-    console.log('Es gibt 0 Punkte.')},
+    console.log('Es gibt 0 Punkte.')}
