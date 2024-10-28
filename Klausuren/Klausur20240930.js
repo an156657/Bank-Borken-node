@@ -22,7 +22,7 @@ class Wuerfel{constructor(){  this.Laenge
                             }}
 
  // Deklaration (= Bakanntmachung), Instanziierung (= Speicherzellen reservieren)
-let wuerfel1=new Wuerfel();
+let wuerfel1=new Wuerfel(); // let wuerfel mit kleinem w und new Wuerfel mit großen W und runde Klammern am Ende nicht vergessen
 
 // Initialisierung
 
@@ -76,7 +76,8 @@ class Zeugnis{constructor(){    this.Mathe
                                 this.Biologie
                                 this.Religion
                                 this.Niederländisch
-                                this.Physik             }}
+                                this.Physik    
+                                this.Klassenbeste         }}
 
 
 // 2b)
@@ -119,17 +120,20 @@ console.log(' Hans hat die Durchschnittsnote: '+durchschnittsnote)
 // let x = Math.min(5, 10); --> Es werden 5 und 10 verglichen. x nimmt jetzt den Wert 5 an, da 5 der niedrigste der kommaseparierten Werte ist.
 
 
-let durchschnittsnoteLisa=3
+let durchschnittsnoteLisa=3 // Bei lokalen Variablen mit Kleinbuchstaben beginnen.
 let durchschnittsnoteTom=4
 let durchschnittsnoteMax=5
 
 let x =Math.min(durchschnittsnote, durchschnittsnoteLisa, durchschnittsnoteTom, durchschnittsnoteMax)
 
-if(x=durchschnittsnote){console.log('Hans hatmit die beste Durchschnittsnote und zwar: '+x)}
+if(durchschnittsnote<Math.min(durchschnittsnoteLisa,durchschnittsnoteMax,durchschnittsnoteTom)){zeugnis.Klassenbeste=true}
+else{zeugnis.Klassenbeste=false}
+
+if(x=durchschnittsnote){console.log('Hans hat die beste Durchschnittsnote und zwar: '+x)}
 else{console.log('Hanshat nicht die beste Durchschnittsnote')}
 
-// console.log('Die beste Durchschnittsnote ist: '+x)
-//!!!!!!!!!!!!!!!!!!!!!
+console.log('Lisa hat einen Durchschnitt von '+durchschnittsnoteLisa+ ' und sie ist Klassenbeste.')
+console.log('Lisa hat einen Durchschnitt von '+durchschnittsnoteLisa+ ' und sie ist nicht Klassenbeste.')
 
 console.log("Aufgabe 3")
 // Es gilt:
@@ -148,10 +152,10 @@ console.log("Aufgabe 3")
 
 // 3a)
 // Deklarieren, Instanziieren Sie ein Objekt mit allen genannten Eigenschaften. 
-class Zeitung{constructor(){this.Rabatt
-                            this.NettoRechnungsbetrag
-                            this.MwStProzentsatz
-                            this.BruttoRechnungsbetrag
+class Zeitung{constructor(){this.Rabatt                             // Eigenschaften beginnen immer mit Großbuchstaben.
+                            this.NettoRechnungsbetrag               // Kamelhöcker-Notation verwenden!
+                            this.MwStProzentsatz                    // D.h. Wörter mit Großbuchstaben verbinden. 
+                            this.BruttoRechnungsbetrag              // Keine Leerzeichen in Namen, keine Bindestriche in Namen, keine Unterstriche, ...
                             this.Skonto
                             this.Zahlungsbetrag
                             this.MwSt           }}
@@ -166,12 +170,11 @@ let zeitung = new Zeitung()
 
 let produktart="Zeitung"
 
-zeitung.NettoRechnungsbetrag=370
+zeitung.NettoRechnungsbetrag=370 // Kein Komma für die Nachkommastelle angeben. Falls es aber Nachkommastellen gibt, muss man einen Punkt benutzen.
+                                 // Keine Einheit wie zum Beispiel € angeben.
 
-if(produktart==="Zeitung" || produktart ==="Lebensmittel" || produktart==="Buch"){zeitung.MwStProzentsatz=7}
+if(produktart==="Zeitung" || produktart ==="Lebensmittel" || produktart==="Buch"){zeitung.MwStProzentsatz=7}  // || = oder
 else{zeitung.MwStProzentsatz=19}
-
-
 
 console.log('Der Nettorechnungsbetrag beträgt: '+zeitung.NettoRechnungsbetrag+ ' Euro und der MwStProzentsatz beträgt: '+zeitung.MwStProzentsatz+ ' Prozent')
 
