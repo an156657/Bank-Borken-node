@@ -42,6 +42,6 @@ console.log(`Running on http://${HOST}:${PORT}`);
 // require('./uebungen/01-grundlagen.js');
 // require('./uebungen/02-boolean.js');
 // require('./uebungen/03-objekte.js');
-// require('./uebungen/04-ueben.js');
-require('./Klausuren/Klausur20240930.js');
+// require('./Klausuren/Klausur20240930.js');
+require('./uebungen/04-funktionen.js');
 
