@@ -31,16 +31,55 @@ app.get('/', (req, res) => {
 	// eine HTML-Datei an den Browser senden.
 
 	// Der Server gibt die gerenderte ejs-Seite an den browser zurück.
-	res.render(`index.ejs`,{});
+	res.render('index.ejs',{});
 });
 
 // Wenn im Browser die Adresse ... / agb aufgerufen wird, wird der Server aufgefordert, 
 // die angefragte Seite an den Browser zurückzugeben.
 // Der Server arbeitet dazu die Funktionen app.get ('agb)... ab.
-app.get('agb',(req, res)=>{
+app.get('/agb',(req, res)=>{
 	res.render('agb.ejs',{});
 });
 
+app.get('/profil',(req, res)=>{
+	res.render('profil.ejs',{});
+});
+
+app.get('/postfach',(req, res)=>{
+	res.render('postfach.ejs',{});
+});
+
+app.get('/hilfe',(req, res)=>{
+	res.render('hilfe.ejs',{});
+});
+
+app.get('/index',(req, res)=>{
+	res.render('index.ejs',{});
+});
+
+app.get('/geldanlegen',(req, res)=>{
+	res.render('geldanlegen.ejs',{});
+});
+
+app.get('/kontenuebersicht',(req, res)=>{
+	res.render('kontenuebersicht.ejs',{});
+});
+
+app.get('/kreditbeantragen',(req, res)=>{
+	res.render('kreditbeantragen.ejs',{});
+});
+
+app.get('/login',(req, res)=>{
+	res.render('login.ejs',{});
+});
+
+app.get('/ueberweisung',(req, res)=>{
+	res.render('ueberweisung.ejs',{});
+});
+
+app.get('/login',(req, res)=>{
+	res.render('login.ejs',{});
+});
 
 // Mit listen wird der Server angewiesen, auf den angegebenen Host und Port zu lauschen.
 app.listen(PORT, HOST);
