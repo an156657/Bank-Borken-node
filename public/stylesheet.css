@@ -74,3 +74,10 @@ p{font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 img{width:min-content;
 min-height: auto;}
+
+button{color:black;
+  font:bold;
+  text-align:center;
+  font-size: 16;}
+  }
+

@@ -58,6 +58,14 @@ app.get('/index',(req, res)=>{
 });
 
 app.get('/geldanlegen',(req, res)=>{
+	res.render('geldanlegen.ejs',{
+		Betrag: 100
+	});
+});
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111111111111111
+
+app.post('/geldanlegen',(req, res)=>{
 	res.render('geldanlegen.ejs',{});
 });
 
@@ -81,6 +89,7 @@ app.get('/login',(req, res)=>{
 	res.render('login.ejs',{});
 });
 
+
 // Mit listen wird der Server angewiesen, auf den angegebenen Host und Port zu lauschen.
 app.listen(PORT, HOST);
 
@@ -96,4 +105,3 @@ console.log(`Running on http://${HOST}:${PORT}`);
 // require('./uebungen/03-objekte.js');
 // require('./Klausuren/Klausur20240930.js');
 // require('./uebungen/04-funktionen.js');
-

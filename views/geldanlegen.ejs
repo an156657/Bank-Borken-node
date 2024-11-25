@@ -24,13 +24,60 @@
 
 <main>
 <h1>Geld anlegen</h1>
+<h2>Geben Sie hier Ihren Wunschbetrag an, um auszurechnen, wieviele Zinsen Sie nach der gewünschten Laufzeit bekommen werden.</h2>
+
+<!--Hier kommt das Formular hin-->
+<form method="post">
+        <!--Das Label zeigt dem Kunden Text im Formular an.-->
+        <label>Wunschbetrag in €</label><br></form>
+        <!--Das Eingabefeld hat den Type number, womit die Eingabe von Zahlen erzwungen wird.-->
+        <!--Der Name lautet Betrag. Der Server greift über den Namen auf das Input zu.-->
+        <input type="number" name="Betrag" value=<%=Betrag%><br><br>
+    
+        <label>Laufzeit in Jahren</label><br>
+        <input type="number" name="Laufzeit"><br><br>
+    
+        <button type="submit" formaction="/geldanlegen">Zinsen berechnen</button><br><br>
+ </form>
+   
+
+<!--<form id="zinsrechner">
+    <label for="wunschbetrag">Wunschbetrag (€):</label>
+    <input type="number" id="wunschbetrag" name="wunschbetrag" required><br><br>
+
+    <label for="zinsen">Zinsen (% pro Jahr):</label>
+    <input type="number" id="zinsen" name="zinsen" step="0.01" required><br><br>
+
+    <label for="laufzeit">Laufzeit (Jahre):</label>
+    <input type="number" id="laufzeit" name="laufzeit" required><br><br>
+
+    <button type="submit">Berechnen</button>
+</form>
+
+<div id="ergebnis"></div>
+
+<script>
+    document.getElementById('zinsrechner').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const wunschbetrag = parseFloat(document.getElementById('wunschbetrag').value);
+        const zinsen = parseFloat(document.getElementById('zinsen').value) / 100;
+        const laufzeit = parseInt(document.getElementById('laufzeit').value);
+
+        const gesamtbetrag = wunschbetrag * Math.pow(1 + zinsen, laufzeit);
+        const zinsenGesamt = gesamtbetrag - wunschbetrag;
+
+        document.getElementById('ergebnis').innerHTML = `
+            <h3>Ergebnis:</h3>
+            <p>Gesamtbetrag nach ${laufzeit} Jahren: €${gesamtbetrag.toFixed(2)}</p>
+            <p>Erhaltene Zinsen: €${zinsenGesamt.toFixed(2)}</p>
+        `;
+    });
+</script> -->
+
 </main>
 
-
-
 <p></p>
-
-
 
     <footer>
         <i class="fa-brands fa-instagram"></i> Bank-Borken
