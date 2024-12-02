@@ -5,7 +5,13 @@
 
 'use strict';
 
+// Das Modul express wird mit der Funktion require einer Konstanten namens express zugewiesen.
 const express = require('express');
+
+// Der Body Parser ermöglicht es uns, Daten aus dem Kunden-Formular auf dem Server entgegenzunehmen.
+// Der Body-Parser wird im Terminal mit dem Befehl 'mpm -g body-parser' installiert.
+const bodyParser = require('body-parser');
+
 
 // Constants#
 // Die Anweisungen werden von oben nach unten abgearbeitet.
@@ -20,6 +26,11 @@ const app = express();
 
 // Es wird der App bekanntgegeben, wo die Styles zu finden sind.
 app.use(express.static('public'))
+app.set('view engine', 'ejs')
+
+// Der body-Parser wird in der App eingebunden.
+app.use(bodyParser.urlencoded({extended: true}))
+
 app.get('/', (req, res) => {
 	// res ist die Antwort des Servers an den Browser.
 	// send() ist die Anweisung etwas an den Browser zu senden.
@@ -57,17 +68,50 @@ app.get('/index',(req, res)=>{
 	res.render('index.ejs',{});
 });
 
+// Die Funktion app.get('/geldanlegen'....) wird abgearbeitet, wenn der Benutzer die Seite GeldAnlegen im Browser anssurft.
+
+
 app.get('/geldanlegen',(req, res)=>{
+
+	// Die Serverantwort an den Browser wird gerendert an den Browser zurückgegeben.
+	// Dazu wird die Funktion render() aufgerufen.
+
 	res.render('geldanlegen.ejs',{
-		Betrag: 100
+
+		// In der GeldAnlegen.ejs gibt es die Variablen Betrag und Laufzeit.
+		// Der Server übergibt fir folgenden Werte an den Browser.
+
+		Betrag: 120,
+		Laufzeit: 2,
+		Meldung: ""
 	});
 });
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111111111111111
+
+// DIe FUunktion app.post('geldanlegen ...) wird abgearbeitet, wenn der Kunde auf dem Formular den absende Buttton klickt. 
 
 app.post('/geldanlegen',(req, res)=>{
-	res.render('geldanlegen.ejs',{});
-});
+
+// Die Werte, die der Kunde im Formular eingegeben hat, werden an den Server gesendet.
+// Der Wert der Varialen Betrag wird aus dem body der Kundenanfrage(rq) ausgewiesen und zugewisen an die lokae Variable namens Betrag.
+
+let betrag = req.body.Betrag;
+console.log('geldanlegen: Gewünschter Betrag: '+betrag+' Euro')
+
+let laufzeit = req.body.Laufzeit;
+console.log('geldanlegen: Gewünschte Laufzeit: '+laufzeit+' Euro')
+
+let zinssatz = 0.1
+
+let zinsen = betrag * zinssatz
+
+	res.render('geldanlegen.ejs',{
+		Betrag: betrag,
+		Laufzeit: laufzeit,
+		Meldung: "Ihre Zinsen betragen: " + zinsen
+	})});
+
+
 
 app.get('/kontenuebersicht',(req, res)=>{
 	res.render('kontenuebersicht.ejs',{});
@@ -104,4 +148,4 @@ console.log(`Running on http://${HOST}:${PORT}`);
 // require('./uebungen/02-boolean.js');
 // require('./uebungen/03-objekte.js');
 // require('./Klausuren/Klausur20240930.js');
-// require('./uebungen/04-funktionen.js');
+// require('./uebungen/04-funktionen.js')

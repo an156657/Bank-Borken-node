@@ -32,14 +32,19 @@
         <label>Wunschbetrag in €</label><br></form>
         <!--Das Eingabefeld hat den Type number, womit die Eingabe von Zahlen erzwungen wird.-->
         <!--Der Name lautet Betrag. Der Server greift über den Namen auf das Input zu.-->
-        <input type="number" name="Betrag" value=<%=Betrag%><br><br>
-    
+        <input name="Betrag" type="number" min="1" value =<%= Betrag%><br><br>
+        <!-- <input type="number" name="Betrag" value=<%=Betrag%><br><br>-->
+        
+
         <label>Laufzeit in Jahren</label><br>
-        <input type="number" name="Laufzeit"><br><br>
-    
+        <input type="number" name="Laufzeit" value=<%=Laufzeit%><br><br>
+       
+    <!--Die Formaction legt fest, dass auf dem Server die app.post (/Geldangelen)... abgearbeitet wird, sobald der Kunde den Button drückt.-->
+<br>
         <button type="submit" formaction="/geldanlegen">Zinsen berechnen</button><br><br>
  </form>
    
+ <input <% Meldung ><br><br> !!!!!!!!!!!!!!!!!!!!!1
 
 <!--<form id="zinsrechner">
     <label for="wunschbetrag">Wunschbetrag (€):</label>
