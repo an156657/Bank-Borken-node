@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank-Borken Kontenübersicht</title>
+    <title>Bank-Borken - Geld anlegen</title>
     <!-- Die style.css muss aus allen HTML-Dateien verlinkt werden-->
     <link rel="stylesheet" href="stylesheet.css">
     <!--Es gibt im Internet Dienste, die Styles zur Verfügung stellen. Beispiel: font awesome -->
@@ -14,7 +14,7 @@
         <i class="fa-solid fa-building-columns"></i>
         <br>
         <br>
-        <a href="index"><i class="fa-solid fa-house"></i>Startseite</a>
+        <a href="/"><i class="fa-solid fa-house"></i>Startseite</a>
         <a href="hilfe"> <i class="fa-solid fa-circle-info"> </i>Hilfe</a>
         <a href="postfach"> <i class="fa-solid fa-envelope"> </i>Postfach</a>
         <a href="profil"> <i class="fa-solid fa-user"> </i>Profil</a>
@@ -27,60 +27,21 @@
 <h2>Geben Sie hier Ihren Wunschbetrag an, um auszurechnen, wieviele Zinsen Sie nach der gewünschten Laufzeit bekommen werden.</h2>
 
 <!--Hier kommt das Formular hin-->
+
 <form method="post">
         <!--Das Label zeigt dem Kunden Text im Formular an.-->
-        <label>Wunschbetrag in €</label><br></form>
+        <label> Gewünschter Betrag in Euro </label><br>
         <!--Das Eingabefeld hat den Type number, womit die Eingabe von Zahlen erzwungen wird.-->
         <!--Der Name lautet Betrag. Der Server greift über den Namen auf das Input zu.-->
-        <input name="Betrag" type="number" min="1" value =<%= Betrag%><br><br>
-        <!-- <input type="number" name="Betrag" value=<%=Betrag%><br><br>-->
-        
-
-        <label>Laufzeit in Jahren</label><br>
-        <input type="number" name="Laufzeit" value=<%=Laufzeit%><br><br>
-       
-    <!--Die Formaction legt fest, dass auf dem Server die app.post (/Geldangelen)... abgearbeitet wird, sobald der Kunde den Button drückt.-->
-<br>
+        <input type="number" name="Betrag" value=<%=Betrag %>></br>
+        <label>Gewünschte Laufzeit in Jahren</label></br>
+        <input type="number" name="Laufzeit" value=<%=Laufzeit %>></br>
+        <!--Die formaction legt fest, dass auf dem Server die app.post ('/geldanlegen') abgearbeitet wird, 
+        sobald der Kunde den Button drückt.--><br>
         <button type="submit" formaction="/geldanlegen">Zinsen berechnen</button><br><br>
  </form>
-   
- <input <% Meldung ><br><br> !!!!!!!!!!!!!!!!!!!!!1
-
-<!--<form id="zinsrechner">
-    <label for="wunschbetrag">Wunschbetrag (€):</label>
-    <input type="number" id="wunschbetrag" name="wunschbetrag" required><br><br>
-
-    <label for="zinsen">Zinsen (% pro Jahr):</label>
-    <input type="number" id="zinsen" name="zinsen" step="0.01" required><br><br>
-
-    <label for="laufzeit">Laufzeit (Jahre):</label>
-    <input type="number" id="laufzeit" name="laufzeit" required><br><br>
-
-    <button type="submit">Berechnen</button>
-</form>
-
-<div id="ergebnis"></div>
-
-<script>
-    document.getElementById('zinsrechner').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const wunschbetrag = parseFloat(document.getElementById('wunschbetrag').value);
-        const zinsen = parseFloat(document.getElementById('zinsen').value) / 100;
-        const laufzeit = parseInt(document.getElementById('laufzeit').value);
-
-        const gesamtbetrag = wunschbetrag * Math.pow(1 + zinsen, laufzeit);
-        const zinsenGesamt = gesamtbetrag - wunschbetrag;
-
-        document.getElementById('ergebnis').innerHTML = `
-            <h3>Ergebnis:</h3>
-            <p>Gesamtbetrag nach ${laufzeit} Jahren: €${gesamtbetrag.toFixed(2)}</p>
-            <p>Erhaltene Zinsen: €${zinsenGesamt.toFixed(2)}</p>
-        `;
-    });
-</script> -->
-
-</main>
+ <p><%= Meldung %></p>
+ </main>
 
 <p></p>
 
