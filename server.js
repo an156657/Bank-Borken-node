@@ -149,4 +149,5 @@ app.post('/geldanlegen',(req, res)=>{
 	// require('./uebungen/02-boolean.js');
 	// require('./uebungen/03-objekte.js');
 	// require('./Klausuren/Klausur20240930.js');
-	// require('./uebungen/04-funktionen.js')
+	// require('./uebungen/04-funktionen.js');
+	require('./uebungen/05-ueben.js')
