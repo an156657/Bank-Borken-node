@@ -12,19 +12,23 @@
     <!--Der >Header soll die Seite strukturieren und bekommt entsprechenden Style zugewiesen-->
     <header>
         <i class="fa-solid fa-building-columns"></i>
-        <h1>Herzlich Willkommen bei der Bank Borken</h1>
+        <h1>Herzlich Willkommen bei der Bank Borken!</h1>
     </header>
+
     <!--Formularfelder (Textboxen, Buttons, ...) müssen in form-Tags eingebettet werden-->
-    <form>
+    <form method="post">
         <!--Die Labels beschreiben die Textboxen, br bricht die zeile um-->
         <h2>Login</h2>
             <label>Benutzername</label><br>
-            <input><br>
+            <input name="IdKunde"><br>
             <label>Kennwort</label><br>
-            <input type="password"><br>
-            <button>Einloggen</button>
+            <!--Type password maskiert die Eingabe mit **********-->
+            <input type="password" name="Kennwort"><br>
+            <button formaction="/login">Einloggen</button>
     </form>
+    <p><%= Meldung %></p>
 <br>
+
 <footer>
     <i class="fa-brands fa-instagram"></i> Bank-Borken
     <br>

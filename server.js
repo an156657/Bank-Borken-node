@@ -1,7 +1,15 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+class Kunde{constructor(){this.Nachname
+							this.Vorname
+							this.Benutzername
+							this.Kennwort		}}
+
+let kunde = new Kunde()
+
+kunde.Nachname="Kiff"
+kunde.Vorname="Pit"
+kunde.Benutzername="pk"
+kunde.Kennwort="123"
+
 
 'use strict';
 
@@ -127,8 +135,37 @@ app.post('/geldanlegen',(req, res)=>{
 	});
 
 	app.get('/login',(req, res)=>{
-		res.render('login.ejs',{});
+		res.render('login.ejs',{
+			Meldung:"Alles easy."
+		});
 	});
+
+
+	app.post('/login',(req, res)=>{
+
+		let benutzername = req.body.IdKunde;
+		console.log('Benutzername: '+benutzername)
+		
+		let kennwort = req.body.Kennwort;
+		console.log('Kennwort: '+kennwort)
+		
+		// Es muss geprüft werden, ob der Kunde mit diesem Benutzername das richtige 
+		// Kennwort eingegeben hat.
+
+		let meldung ="";
+
+		if(kunde.Benutzername == benutzername && kunde.Kennwort == kennwort){
+			console.log('Die Zugangsdaten wurden korrekt eingegeben')
+			meldung= "Die Zugangsdaten wurden nicht korrekt eingegebn"		}
+
+			else{console.log('Die Zugangsdaten wurden nicht korrekt eingegeben')
+				meldung= "Die Zugangsdaten wurden nicht korrekt eingegebn"
+			}
+		
+		res.render('login.ejs',{
+				Meldung: meldung			
+			});		
+		});
 
 
 
