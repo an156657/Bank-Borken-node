@@ -10,6 +10,19 @@ kunde.Vorname="Pit"
 kunde.Benutzername="pk"
 kunde.Kennwort="123"
 
+class Kundenberater{constructor(){	this.Nachname
+									this.Vorname
+									this.Telefonnummer
+									this.Mail
+									this.Bild					}}
+
+let kundenberater = new Kundenberater()
+
+kundenberater.Nachname="Pass"
+kundenberater.Vorname="Hildegard"
+kundenberater.Telefonnummer="86543975"
+kundenberater.Mail="h.pass@bank-borken.de"
+kundenberater.Bild="pass.jpg"
 
 'use strict';
 
@@ -82,9 +95,18 @@ app.get('/postfach',(req, res)=>{
 	res.render('postfach.ejs',{});
 });
 
-app.get('/kreditbeantragen',(req, res)=>{
-	res.render('kreditbeantragen.ejs',{});
+
+
+// Sobald die Seite "Kredit beantragen" aufgerufen wird, wird die app.get abgearbeitet.
+app.get('/kreditBeantragen', (req, res) => {
+	res.render('kreditBeantragen.ejs',{
+		Laufzeit: "",
+		Zinssatz: "",		
+		Betrag: "",
+		Meldung: ""
+	});
 });
+
 
 app.get('/ueberweisung',(req, res)=>{
 	res.render('ueberweisung.ejs',{});
@@ -166,6 +188,28 @@ app.post('/geldanlegen',(req, res)=>{
 				Meldung: meldung			
 			});		
 		});
+
+
+		// Sobald der "Kredit berechnen"-Button gedrückt wird, wird die app.post abgearbeitet.
+app.post('/kreditBeantragen', (req, res) => {
+
+	// Der Server nimmt die Werte aus dem Browserformular entgegen:
+	let zinsbetrag = req.body.Betrag;
+	let laufzeit = req.body.Laufzeit;
+	let zinssatz = req.body.Zinssatz;
+
+	// Der Rückzahlungsbetrag wird berechnet
+	let kredit = zinsbetrag * Math.pow(1+zinssatz/100,laufzeit);
+	console.log("Rückzahlungsbetrag: " + kredit + " €.")
+
+	// Die Funktion render() gibt die Werte an den Browser
+	res.render('kreditBeantragen.ejs',{
+		Laufzeit: laufzeit,
+		Zinssatz: zinssatz,		
+		Betrag: zinsbetrag,
+		Meldung: "Rückzahlungsbetrag: " + kredit + " €."
+	});
+});
 
 
 
