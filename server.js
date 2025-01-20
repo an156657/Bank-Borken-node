@@ -1,14 +1,24 @@
+// Klassendefinition des Kunden
+
 class Kunde{constructor(){this.Nachname
 							this.Vorname
 							this.Benutzername
-							this.Kennwort		}}
+							this.Kennwort
+							this.IstEingeloggt		}}
 
+
+// Klassendefinition deklariert und instanziiert
 let kunde = new Kunde()
+
+// Kundenobkejt initialisieren
 
 kunde.Nachname="Kiff"
 kunde.Vorname="Pit"
 kunde.Benutzername="pk"
 kunde.Kennwort="123"
+kunde.IstEingeloggt= false
+
+// Klassendefinition Kundenberater
 
 class Kundenberater{constructor(){	this.Nachname
 									this.Vorname
@@ -16,7 +26,11 @@ class Kundenberater{constructor(){	this.Nachname
 									this.Mail
 									this.Bild					}}
 
+// Kundenberaterobjekt deklarierern und instanziieren									
+
 let kundenberater = new Kundenberater()
+
+// Kundenberaterobejkt initialisieren
 
 kundenberater.Nachname="Pass"
 kundenberater.Vorname="Hildegard"
@@ -56,6 +70,7 @@ app.set('view engine', 'ejs')
 
 app.use(bodyParser.urlencoded({extended: true}))
 
+// Die App.get wird angearbeitet, sobald die Index-Seite angesurft wird.
 app.get('/', (req, res) => {
 
 	// res ist die Antwort des Servers an den Browser.
@@ -66,8 +81,11 @@ app.get('/', (req, res) => {
 	// Das res-Objekt kann noch mehr als nur eine Zeichenkette  an den 
 	// Browser zu senden. Das res-Objekt kann mit der Funktion render()
 	// eine HTML-Datei an den Browser senden.
-	res.render('index.ejs',{});
-});
+
+	
+		// Wenn die Zugangsdaten korrekt sind,dann wird die angesurfte Seite gerendert
+	res.render('index.ejs',{});})
+
 
 	// Wenn im Browser die Adresse .../agb aufgerufen wird, wird der Server aufgefordert,
 	// die angefragte Seite an den Browser zurückzugeben.
@@ -156,13 +174,17 @@ app.post('/geldanlegen',(req, res)=>{
 			});
 	});
 
+
+	// Die app.get wird abgearbeitet, wenn die Seite im Browser angesurft wird.
 	app.get('/login',(req, res)=>{
+		kunde.IstEingeloggt = false
+		console.log("kunde.IstEingeloggt: "+ kunde.IstEingeloggt)
 		res.render('login.ejs',{
-			Meldung:"Alles easy."
+			Meldung:"Bitte Benutzername und Kennwort eingeben."
 		});
 	});
 
-
+// Die app.post wird abgearbeitet, wenn das Formular auf der Seite abgesendet wird.
 	app.post('/login',(req, res)=>{
 
 		let benutzername = req.body.IdKunde;
@@ -173,17 +195,25 @@ app.post('/geldanlegen',(req, res)=>{
 		
 		// Es muss geprüft werden, ob der Kunde mit diesem Benutzername das richtige 
 		// Kennwort eingegeben hat.
+		// Die Kontrollstruktur prüft auf die Korrektheit der Zugangsdaten.
 
 		let meldung ="";
 
 		if(kunde.Benutzername == benutzername && kunde.Kennwort == kennwort){
 			console.log('Die Zugangsdaten wurden korrekt eingegeben')
-			meldung= "Die Zugangsdaten wurden nicht korrekt eingegebn"		}
+			meldung= "Die Zugangsdaten wurden nicht korrekt eingegebn"		
+
+			// Wenn die Eingabedaten korrekt sind, dann wird die index Seite gerendert
+			res.render('index.ejs',{
+				Meldung: meldung			
+			});		
+		}
 
 			else{console.log('Die Zugangsdaten wurden nicht korrekt eingegeben')
 				meldung= "Die Zugangsdaten wurden nicht korrekt eingegebn"
 			}
 		
+			// Wenn die Zugangsdaten sicht korrekt sind, dann wird die login-Seite erneut gerendert
 		res.render('login.ejs',{
 				Meldung: meldung			
 			});		
