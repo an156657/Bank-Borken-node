@@ -4,6 +4,8 @@ class Kunde{constructor(){this.Nachname
 							this.Vorname
 							this.Benutzername
 							this.Kennwort
+							// IstEIngeloggt ist ein Boolean
+							// Der Wert ist entweder wahr oder falsch
 							this.IstEingeloggt		}}
 
 
@@ -53,6 +55,11 @@ const bodyParser = require('body-parser');
 // zugewisen an die Konstante namens PORT. Das einfache Gleichheitszeichen lässt sich also übersetzen
 // mit "--- wird zugewiesen an ..."
 
+// Der Cookie-Parser ist für die Verarbeitung der Cookies unserer App zuständig.
+// Mit dem cookie Parser können wir cookies setzen und auslesen und löschen.
+
+const cookieParser=require('cookie-parser')
+
 const PORT = 3000;
 
 // Der Wert '0.0.0.0' wird zugewisen an eine Konstante namens HOST.
@@ -69,6 +76,13 @@ app.set('view engine', 'ejs')
 // Der Bodyparser wird in der App eingebunden.
 
 app.use(bodyParser.urlencoded({extended: true}))
+
+// Der cookie Parser wird in die App eingebunden
+// Cookies können verschlüsselt im Browser abgelegt werden.
+// Dadurch kann ein im Browser gespeichertes Kennwort nicht mehr ausgelesen werden.
+// Nur unsere App kann den verschlüsselten Cookie verwenden.
+// Dazu wird das secret 'geheim' benutzt.
+app.use(cookieParser('geheim'))
 
 // Die App.get wird angearbeitet, sobald die Index-Seite angesurft wird.
 app.get('/', (req, res) => {
@@ -187,9 +201,11 @@ app.post('/geldanlegen',(req, res)=>{
 // Die app.post wird abgearbeitet, wenn das Formular auf der Seite abgesendet wird.
 	app.post('/login',(req, res)=>{
 
+		// Der Benutzername wird vom Browser an den Server übergeben
 		let benutzername = req.body.IdKunde;
 		console.log('Benutzername: '+benutzername)
 		
+		// Das Kennwort wird vom Browser an den Server übergeben
 		let kennwort = req.body.Kennwort;
 		console.log('Kennwort: '+kennwort)
 		
